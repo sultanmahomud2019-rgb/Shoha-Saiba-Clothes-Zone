@@ -118,7 +118,7 @@
   <nav>
     <a class="brand" href="#home">
       <img src="logo.png" alt="Shoha & Saiba logo">
-      <span>Shoha & Saiba Clothes Zone</span>
+      <span>Shoha & Saiba</span>
     </a>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -132,7 +132,7 @@
     <div class="hero-content">
       <div class="hero-copy">
         <img class="hero-logo" src="logo.png" alt="Shoha & Saiba Cloths Zone logo">
-        <h1>Shoha <span>&amp;</span> Saiba Clothes Zone </h1>
+        <h1>Shoha <span>&amp;</span> Saiba</h1>
         <p class="tagline">Cloths Zone</p>
         <p>Elegant ladies' garments made to bring together style, comfort and confidence.</p>
         <div class="buttons">
@@ -339,52 +339,24 @@
       document.getElementById("categoryTitle").textContent = categoryNames[index];
       const grid = document.getElementById("categoryProductGrid");
       grid.innerHTML = "";
-     // ===== EASY PRODUCT AREA =====
-  const products = [
-    { name: "Jom Jom ", price: 1000, photos: [], video: "", colors: ["Pink","Red","Black"] },
-    { name: "Jom Jom ", price: 1200, photos: [], video: "", colors: ["Pink","Red","Black"] },
-    { name: "Jom Jom ", price: 1500, photos: [], video: "", colors: ["Pink","Red","Black"] },
-    { name: "Product 4", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 5", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 6", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 7", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 8", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 9", price: 0, photos: [], video: "", colors: [] },
-    { name: "Product 10", price: 0, photos: [], video: "", colors: [] }
-  ];
+      for(let i=1;i<=10;i++){
+        grid.innerHTML += `
+          <article class="product-card">
+            <div class="product-photo"><span>${categoryNames[index]}<br>Product ${i}<br>Photo Coming Soon</span></div>
+            <div class="product-info">
+              <h3>${categoryNames[index]} Product ${i}</h3>
+              <div class="product-price">৳ 0 BDT</div>
+              <button class="order-btn" type="button" onclick="openOrder(this)">Order Now</button>
+            </div>
+          </article>`;
+      }
+      document.getElementById("collection").scrollIntoView({behavior:"smooth"});
+    }
+    function showCategories(){
+      document.getElementById("categoryProducts").classList.remove("active");
+      document.querySelector(".category-grid").style.display = "grid";
+    }
+  </script>
 
-  products.forEach((product, i) => {
-  grid.innerHTML += `
-    <article class="product-card">
-
-      <div class="product-photo">
-        <span>
-          ${categoryNames[index]}<br>
-          ${product.name}<br>
-          Photo Coming Soon
-        </span>
-      </div>
-
-      <div class="product-info">
-
-        <h3>${product.name}</h3>
-
-        <div class="product-price">
-          ৳ ${product.price} BDT
-        </div>
-
-        <button
-          class="order-btn"
-          type="button"
-          onclick="openOrder(this)">
-          Order Now
-        </button>
-
-      </div>
-
-    </article>`;
-});
-
-document.getElementById("collection").scrollIntoView({
-  behavior: "smooth"
-});
+</body>
+</html>
