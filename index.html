@@ -354,23 +354,37 @@
   ];
 
   products.forEach((product, i) => {
-      grid.innerHTML += `
-          <article class="product-card">
-            <div class="product-photo"><span>${categoryNames[index]}<br>Product ${i}<br>Photo Coming Soon</span></div>
-            <div class="product-info">
-              <h3>${categoryNames[index]} Product ${i}</h3>
-              <div class="product-price">৳ BDT</div>
-              <button class="order-btn" type="button" onclick="openOrder(this)">Order Now</button>
-            </div>
-          </article>`;
-      }
-      document.getElementById("collection").scrollIntoView({behavior:"smooth"});
-    }
-    function showCategories(){
-      document.getElementById("categoryProducts").classList.remove("active");
-      document.querySelector(".category-grid").style.display = "grid";
-    }
-  </script>
+  grid.innerHTML += `
+    <article class="product-card">
 
-</body>
-</html>
+      <div class="product-photo">
+        <span>
+          ${categoryNames[index]}<br>
+          ${product.name}<br>
+          Photo Coming Soon
+        </span>
+      </div>
+
+      <div class="product-info">
+
+        <h3>${product.name}</h3>
+
+        <div class="product-price">
+          ৳ ${product.price} BDT
+        </div>
+
+        <button
+          class="order-btn"
+          type="button"
+          onclick="openOrder(this)">
+          Order Now
+        </button>
+
+      </div>
+
+    </article>`;
+});
+
+document.getElementById("collection").scrollIntoView({
+  behavior: "smooth"
+});
