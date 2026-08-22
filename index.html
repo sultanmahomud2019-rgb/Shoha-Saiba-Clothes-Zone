@@ -339,7 +339,9 @@
       document.getElementById("categoryTitle").textContent = categoryNames[index];
       const grid = document.getElementById("categoryProductGrid");
       grid.innerHTML = "";
-      for(let i=1;i<=10;i++){
+      for(let i=1;i<=10;i++){name: "Jom Jom Product 1", price: 1000, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
+      { name: "Jom Jom Product 2", price: 1200, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
+      { name: "Jom Jom Product 3", price: 1500, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
         grid.innerHTML += `
           <article class="product-card">
             <div class="product-photo"><span>${categoryNames[index]}<br>Product ${i}<br>Photo Coming Soon</span></div>
