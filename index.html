@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoha & Saiba Cloths Zone</title>
+  <meta name="description" content="Shoha & Saiba Cloths Zone — Style, Comfort, Quality.">
+  <style>
+    :root{
+      --gold:#d6a62b;
+      --gold2:#ffd86a;
+      --pink:#e8a0b4;
+      --cream:#fff8ee;
+      --dark:#17120f;
+      --text:#3b2922;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Georgia, "Times New Roman", serif;
+      background:var(--cream); color:var(--text); line-height:1.6;
+    }
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:10;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 6%; background:rgba(23,18,15,.92);
+      backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,216,106,.3);
+    }
+    .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:bold}
+    .brand img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+    .brand span{font-size:1.05rem}
+    nav ul{display:flex;gap:26px;list-style:none}
+    nav a{color:#fff;text-decoration:none;font-family:Arial,sans-serif;font-size:.9rem}
+    nav a:hover{color:var(--gold2)}
+
+    .hero {
+      min-height:100vh; display:grid; place-items:center;
+      padding:120px 6% 70px; position:relative; overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,216,106,.38), transparent 28%),
+        radial-gradient(circle at 80% 25%, rgba(255,122,170,.35), transparent 32%),
+        linear-gradient(135deg,#fff0f5 0%,#ffe4ee 42%,#fff8df 100%);
+      color:#2b1b15;
+    }
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.35),transparent 45%,rgba(255,216,106,.15));pointer-events:none}
+    .hero-content{position:relative;max-width:1150px;width:100%;display:grid;grid-template-columns:1fr 1.15fr;gap:45px;align-items:center;text-align:left}
+    .hero-copy{position:relative;z-index:2}
+    .hero-visual{position:relative;min-height:520px;border-radius:34px;overflow:hidden;border:5px solid rgba(255,255,255,.75);box-shadow:0 30px 80px rgba(111,62,80,.25);background:#f7d8e3}
+    .hero-cover{width:100%;height:100%;min-height:520px;object-fit:cover;display:block;filter:saturate(1.18) brightness(1.05)}
+    .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,105,165,.12),rgba(255,216,106,.22));pointer-events:none}
+    .hero-logo{width:min(220px,55vw);aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 18px 55px rgba(80,35,50,.25);border:5px solid #d6a62b;margin-bottom:22px;background:#fff}
+    h1{font-size:clamp(2.2rem,6vw,5rem);line-height:1.05;color:#2b1b15}
+    h1 span{color:#c68c12}
+    .tagline{font-family:Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;margin:18px 0;color:#a13e67;font-weight:bold}
+    .hero-copy>p:not(.tagline){font-family:Arial,sans-serif;max-width:650px;font-size:1.05rem;color:#5b4149}
+    .buttons{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;margin-top:28px}
+    .primary{background:linear-gradient(135deg,#ffd86a,#d6a62b);color:#21170c}
+    .secondary{border:1px solid #b07b13;color:#5b3b14;background:rgba(255,255,255,.45)}
+    .hero-badge{position:absolute;right:22px;bottom:22px;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border:1px solid rgba(214,166,43,.5);padding:12px 18px;border-radius:18px;font-family:Arial,sans-serif;font-weight:bold;color:#7b5310}
+    @media(max-width:850px){
+      .hero-content{grid-template-columns:1fr;gap:28px;text-align:center}
+      .hero-copy{display:flex;flex-direction:column;align-items:center}
+      .buttons{justify-content:center}
+      .hero-visual,.hero-cover{min-height:380px}
+      .hero-logo{width:180px}
+    }
+    section{padding:85px 6%}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title h2{font-size:2.4rem;color:#2b1b15}
+    .section-title p{font-family:Arial,sans-serif;color:#765b4d}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:auto}
+    .card{
+      background:#fff;border:1px solid #ecd9bf;border-radius:20px;padding:30px;text-align:center;
+      box-shadow:0 12px 35px rgba(76,43,24,.08)
+    }
+    .icon{font-size:2.5rem;margin-bottom:12px}
+    .card h3{margin-bottom:8px}
+    .about{
+      background:linear-gradient(135deg,#fff1f4,#fff9ef);
+    }
+    .about-box{max-width:1000px;margin:auto;text-align:center}
+    .about-box p{font-family:Arial,sans-serif;font-size:1.05rem;color:#5d4a41}
+    .contact{
+      background:#211813;color:#fff;text-align:center
+    }
+    .contact h2{color:#ffd86a}
+    .contact-info{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:25px}
+    .contact-pill{
+      padding:13px 20px;border:1px solid rgba(255,216,106,.5);border-radius:30px;
+      font-family:Arial,sans-serif
+    }
+    footer{background:#120e0c;color:#cbb9ad;text-align:center;padding:22px;font-family:Arial,sans-serif;font-size:.85rem}
+    @media(max-width:750px){
+      nav ul{display:none}
+      .cards{grid-template-columns:1fr}
+      .brand span{font-size:.85rem}
+    }
+  
+      .order-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;padding:20px;overflow:auto}
+      .order-box{max-width:520px;margin:5vh auto;background:#fff;border-radius:22px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.35);position:relative}
+      .order-box h3{font-size:1.6rem;margin-bottom:4px;color:#2b1b15}
+      .order-box .order-product{font-family:Arial,sans-serif;color:#765b4d;margin-bottom:20px}
+      .close-order{position:absolute;right:16px;top:10px;border:0;background:none;font-size:28px;cursor:pointer;color:#765b4d}
+      .field{margin:16px 0}.field label{display:block;font-family:Arial,sans-serif;font-weight:bold;margin-bottom:8px}
+      .colors{display:flex;gap:9px;flex-wrap:wrap}
+      .color-btn{border:1px solid #d8c2b3;background:#fff;padding:9px 14px;border-radius:20px;cursor:pointer}
+      .color-btn.selected{background:#d6a62b;color:#21170c;border-color:#d6a62b}
+      .qty-control{display:flex;align-items:center;gap:15px}
+      .qty-control button{width:40px;height:40px;border-radius:50%;border:1px solid #d6a62b;background:#fff;font-size:22px;cursor:pointer}
+      #qtyValue{font-size:1.2rem;font-weight:bold;min-width:25px;text-align:center}
+      .summary{background:#fff8ee;border-radius:15px;padding:16px;margin:20px 0;font-family:Arial,sans-serif}
+      .summary-row{display:flex;justify-content:space-between;margin:7px 0}.summary-total{border-top:1px solid #e1cda9;padding-top:10px;font-weight:bold;font-size:1.1rem}
+      .confirm-order{width:100%;border:0;padding:14px;border-radius:28px;background:linear-gradient(135deg,#ffd86a,#d6a62b);font-weight:bold;cursor:pointer;font-size:1rem}
+      .note{font-family:Arial,sans-serif;font-size:.82rem;color:#765b4d;margin-top:10px}
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="#home">
+      <img src="logo.png" alt="Shoha & Saiba logo">
+      <span>Shoha & Saiba</span>
+    </a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-copy">
+        <img class="hero-logo" src="logo.png" alt="Shoha & Saiba Cloths Zone logo">
+        <h1>Shoha <span>&amp;</span> Saiba</h1>
+        <p class="tagline">Cloths Zone</p>
+        <p>Elegant ladies' garments made to bring together style, comfort and confidence.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#collection">Explore Collection</a>
+          <a class="btn secondary" href="#contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-cover" src="https://images.pexels.com/photos/8386654/pexels-photo-8386654.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Bright women's fashion boutique clothing display">
+        <div class="hero-badge">Ladies' Fashion • Style • Quality</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="collection">
+  <div class="section-title">
+    <h2>Our Product Categories</h2>
+    <p>Choose a Three-Piece category to view its products.</p>
+  </div>
+  <style>
+    .category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:auto}
+    .category-card{border:1px solid #ecd9bf;background:linear-gradient(145deg,#fff,#fff4f6);border-radius:22px;padding:30px 24px;text-align:left;cursor:pointer;box-shadow:0 12px 35px rgba(76,43,24,.08);transition:.2s;color:#3b2922}
+    .category-card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(76,43,24,.14);border-color:#d6a62b}
+    .category-icon{display:block;font-size:2.5rem;margin-bottom:14px}
+    .category-card strong{display:block;font-size:1.35rem;margin-bottom:12px}
+    .category-arrow{font-family:Arial,sans-serif;color:#b07b13;font-size:.9rem}
+    .category-products{display:none;max-width:1150px;margin:35px auto 0}
+    .category-products.active{display:block}
+    .back-categories{border:1px solid #d6a62b;background:#fff;padding:10px 18px;border-radius:25px;cursor:pointer;font-family:Arial,sans-serif;margin-bottom:20px}
+    .category-heading{text-align:center;margin-bottom:24px}
+    .category-heading h3{font-size:2rem}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .product-card{background:#fff;border:1px solid #ecd9bf;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(76,43,24,.08)}
+    .product-photo{height:290px;background:linear-gradient(135deg,#f8eee7,#f3dce4);display:grid;place-items:center;color:#987a6b;font-family:Arial,sans-serif;text-align:center}
+    .product-photo span{border:2px dashed #cda98f;padding:35px 25px;border-radius:14px}
+    .product-info{padding:22px} .product-info h3{font-size:1.25rem;margin-bottom:8px}
+    .product-price{font-family:Arial,sans-serif;font-weight:bold;font-size:1.1rem;color:#b07b13;margin-bottom:16px}
+    .order-btn{display:block;width:100%;border:0;text-align:center;text-decoration:none;padding:12px;border-radius:28px;background:linear-gradient(135deg,#ffd86a,#d6a62b);color:#21170c;font-family:Arial,sans-serif;font-weight:bold;cursor:pointer}
+    @media(max-width:900px){.category-grid,.product-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.category-grid,.product-grid{grid-template-columns:1fr}.product-photo{height:250px}}
+  </style>
+  <div class="category-grid"><button class="category-card" type="button" onclick="showCategory(0)">
+      <span class="category-icon">🌸</span><strong>Jom Jom</strong><span class="category-arrow">View Products →</span>
+    </button><button class="category-card" type="button" onclick="showCategory(1)">
+      <span class="category-icon">✨</span><strong>Marsel</strong><span class="category-arrow">View Products →</span>
+    </button><button class="category-card" type="button" onclick="showCategory(2)">
+      <span class="category-icon">🪷</span><strong>Mome Batik</strong><span class="category-arrow">View Products →</span>
+    </button><button class="category-card" type="button" onclick="showCategory(3)">
+      <span class="category-icon">🎨</span><strong>Digital Print Jomjom</strong><span class="category-arrow">View Products →</span>
+    </button><button class="category-card" type="button" onclick="showCategory(4)">
+      <span class="category-icon">💎</span><strong>Buttik</strong><span class="category-arrow">View Products →</span>
+    </button><button class="category-card" type="button" onclick="showCategory(5)">
+      <span class="category-icon">👑</span><strong>Buttik with Embroidery</strong><span class="category-arrow">View Products →</span>
+    </button></div>
+  <div id="categoryProducts" class="category-products">
+    <button class="back-categories" type="button" onclick="showCategories()">← Back to Categories</button>
+    <div class="category-heading"><h3 id="categoryTitle"></h3><p>Products in this category</p></div>
+    <div id="categoryProductGrid" class="product-grid"></div>
+  </div>
+</section>
+
+  <section class="about" id="about">
+    <div class="section-title">
+      <h2>About Shoha &amp; Saiba</h2>
+      <p>A new garments business with a big vision.</p>
+    </div>
+    <div class="about-box">
+      <p>
+        Welcome to Shoha &amp; Saiba Cloths Zone. We are building a fashion brand
+        focused on ladies' garments, quality fabrics and beautiful designs.
+        Our goal is simple: help every customer feel confident in what she wears.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-title">
+      <h2>Come Shop With Us</h2>
+      <p>We would love to welcome you.</p>
+    </div>
+    <div class="contact-info">
+      <a class="contact-pill" href="tel:+8801409022692">📞 +880 1409-022692</a>
+      <div class="contact-pill">📍 Ghoshbag, Zirabo, Asulia, Savar, Dhaka</div>
+      <a class="contact-pill" href="https://wa.me/8801409022692" target="_blank" rel="noopener">💬 WhatsApp</a><a class="contact-pill" href="mailto:sultanmahomud2019@gmail.com">✉️ sultanmahomud2019@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Shoha &amp; Saiba Cloths Zone · Style • Comfort • Quality
+  </footer>
+
+  <div class="order-modal" id="orderModal">
+    <div class="order-box">
+      <button class="close-order" onclick="closeOrder()" aria-label="Close">×</button>
+      <h3>Place Your Order</h3>
+      <div class="order-product" id="orderProduct">Product Name</div>
+
+      <div class="field">
+        <label>Choose Color</label>
+        <div class="colors">
+          <button class="color-btn selected" type="button" onclick="selectColor(this)">Pink</button>
+          <button class="color-btn" type="button" onclick="selectColor(this)">Red</button>
+          <button class="color-btn" type="button" onclick="selectColor(this)">Black</button>
+          <button class="color-btn" type="button" onclick="selectColor(this)">White</button>
+          <button class="color-btn" type="button" onclick="selectColor(this)">Blue</button>
+          <button class="color-btn" type="button" onclick="selectColor(this)">Other</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Quantity</label>
+        <div class="qty-control">
+          <button type="button" onclick="changeQty(-1)">−</button>
+          <span id="qtyValue">1</span>
+          <button type="button" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="summary-row"><span>Unit Price</span><strong id="unitPrice">৳ 0</strong></div>
+        <div class="summary-row"><span>Quantity</span><strong id="summaryQty">1</strong></div>
+        <div class="summary-row"><span>Subtotal</span><strong id="subtotal">৳ 0</strong></div>
+        <div class="summary-row"><span>Shipping Charge</span><strong>৳ 160</strong></div>
+        <div class="summary-row summary-total"><span>Total</span><strong id="totalPrice">৳ 160</strong></div>
+      </div>
+
+      <button class="confirm-order" type="button" onclick="confirmOrder()">Confirm Order on WhatsApp</button>
+      <div class="note">After confirmation, WhatsApp will open with your order details ready to send.</div>
+    </div>
+  </div>
+
+  <script>
+    let selectedProduct = "";
+    let selectedPrice = 0;
+    let selectedColor = "Pink";
+    let quantity = 1;
+    const shipping = 160;
+
+    function openOrder(button){
+      const card = button.closest(".product-card");
+      selectedProduct = card.querySelector("h3").textContent.trim();
+      const priceText = card.querySelector(".product-price").textContent.replace(/[^0-9.]/g, "");
+      selectedPrice = Number(priceText) || 0;
+      quantity = 1;
+      selectedColor = "Pink";
+      document.getElementById("orderProduct").textContent = selectedProduct;
+      document.querySelectorAll(".color-btn").forEach((b,i)=>b.classList.toggle("selected",i===0));
+      document.getElementById("orderModal").style.display = "block";
+      updateSummary();
+    }
+
+    function closeOrder(){ document.getElementById("orderModal").style.display = "none"; }
+
+    function selectColor(btn){
+      document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("selected"));
+      btn.classList.add("selected");
+      selectedColor = btn.textContent.trim();
+    }
+
+    function changeQty(amount){
+      quantity = Math.max(1, quantity + amount);
+      updateSummary();
+    }
+
+    function updateSummary(){
+      const subtotal = selectedPrice * quantity;
+      const total = subtotal + shipping;
+      document.getElementById("qtyValue").textContent = quantity;
+      document.getElementById("summaryQty").textContent = quantity;
+      document.getElementById("unitPrice").textContent = "৳ " + selectedPrice.toLocaleString("en-BD");
+      document.getElementById("subtotal").textContent = "৳ " + subtotal.toLocaleString("en-BD");
+      document.getElementById("totalPrice").textContent = "৳ " + total.toLocaleString("en-BD");
+    }
+
+    function confirmOrder(){
+      const subtotal = selectedPrice * quantity;
+      const total = subtotal + shipping;
+      const message =
+        "Hello Shoha & Saiba Cloths Zone,%0A%0A" +
+        "I would like to place an order.%0A" +
+        "Product: " + encodeURIComponent(selectedProduct) + "%0A" +
+        "Color: " + encodeURIComponent(selectedColor) + "%0A" +
+        "Quantity: " + quantity + "%0A" +
+        "Unit Price: ৳ " + selectedPrice + "%0A" +
+        "Subtotal: ৳ " + subtotal + "%0A" +
+        "Shipping: ৳ " + shipping + "%0A" +
+        "Total: ৳ " + total + "%0A%0A" +
+        "Please confirm my order.";
+      window.open("https://wa.me/8801409022692?text=" + message, "_blank");
+    }
+
+    window.addEventListener("click", function(e){
+      const modal = document.getElementById("orderModal");
+      if(e.target === modal) closeOrder();
+    });
+  </script>
+
+
+  <script>
+    const categoryNames = ["Jom Jom","Marsel","Mome Batik","Digital Print Jomjom","Buttik","Buttik with Embroidery"];
+    function showCategory(index){
+      document.querySelector(".category-grid").style.display = "none";
+      document.getElementById("categoryProducts").classList.add("active");
+      document.getElementById("categoryTitle").textContent = categoryNames[index];
+      const grid = document.getElementById("categoryProductGrid");
+      grid.innerHTML = "";
+      for(let i=1;i<=10;i++){
+        grid.innerHTML += `
+          <article class="product-card">
+            <div class="product-photo"><span>${categoryNames[index]}<br>Product ${i}<br>Photo Coming Soon</span></div>
+            <div class="product-info">
+              <h3>${categoryNames[index]} Product ${i}</h3>
+              <div class="product-price">৳ 0 BDT</div>
+              <button class="order-btn" type="button" onclick="openOrder(this)">Order Now</button>
+            </div>
+          </article>`;
+      }
+      document.getElementById("collection").scrollIntoView({behavior:"smooth"});
+    }
+    function showCategories(){
+      document.getElementById("categoryProducts").classList.remove("active");
+      document.querySelector(".category-grid").style.display = "grid";
+    }
+  </script>
+
+</body>
+</html>
