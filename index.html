@@ -339,15 +339,27 @@
       document.getElementById("categoryTitle").textContent = categoryNames[index];
       const grid = document.getElementById("categoryProductGrid");
       grid.innerHTML = "";
-      for(let i=1;i<=10;i++){name: "Jom Jom Product 1", price: 1000, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
-      { name: "Jom Jom Product 2", price: 1200, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
-      { name: "Jom Jom Product 3", price: 1500, photos: [], video: "", colors: ["Pink", "Red", "Black"] },
-        grid.innerHTML += `
+     // ===== EASY PRODUCT AREA =====
+  const products = [
+    { name: "Jom Jom ", price: 1000, photos: [], video: "", colors: ["Pink","Red","Black"] },
+    { name: "Jom Jom ", price: 1200, photos: [], video: "", colors: ["Pink","Red","Black"] },
+    { name: "Jom Jom ", price: 1500, photos: [], video: "", colors: ["Pink","Red","Black"] },
+    { name: "Product 4", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 5", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 6", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 7", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 8", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 9", price: 0, photos: [], video: "", colors: [] },
+    { name: "Product 10", price: 0, photos: [], video: "", colors: [] }
+  ];
+
+  products.forEach((product, i) => {
+      grid.innerHTML += `
           <article class="product-card">
             <div class="product-photo"><span>${categoryNames[index]}<br>Product ${i}<br>Photo Coming Soon</span></div>
             <div class="product-info">
               <h3>${categoryNames[index]} Product ${i}</h3>
-              <div class="product-price">৳ 1000 BDT</div>
+              <div class="product-price">৳ BDT</div>
               <button class="order-btn" type="button" onclick="openOrder(this)">Order Now</button>
             </div>
           </article>`;
