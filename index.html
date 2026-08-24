@@ -333,7 +333,142 @@
 
   <script>
     const categoryNames = ["Jom Jom","Marsel","Mome Batik","Digital Print Jomjom","Buttik","Buttik with Embroidery"];
-    function showCategory(index){
+   function showCategory(index){
+  document.querySelector(".category-grid").style.display = "none";
+  document.getElementById("categoryProducts").classList.add("active");
+  document.getElementById("categoryTitle").textContent = categoryNames[index];
+
+  const grid = document.getElementById("categoryProductGrid");
+  grid.innerHTML = "";
+
+  // JOM JOM - FIRST PRODUCT
+  if(index === 0){
+    grid.innerHTML = `
+      <article class="product-card">
+
+        <div class="product-photo" style="height:420px;">
+          <img 
+            src="images/jomjom-1.jpg"
+            alt="JOMJOM A Great 3 Pieces"
+            style="width:100%;height:100%;object-fit:cover;"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <h3>JOMJOM A Great 3 Pieces</h3>
+
+          <div class="product-price">
+            ৳ 1200 BDT
+          </div>
+
+          <div style="
+            background:#fff8ee;
+            border:1px solid #e5c98b;
+            border-radius:12px;
+            padding:12px;
+            margin-bottom:16px;
+            font-family:Arial,sans-serif;
+            text-align:center;
+          ">
+            <strong>2 Pieces Combo Offer</strong><br>
+            <span style="
+              font-size:1.3rem;
+              color:#9b1c1c;
+              font-weight:bold;
+            ">
+              ৳ 2200 BDT
+            </span>
+          </div>
+
+          <div style="
+            font-family:Arial,sans-serif;
+            margin-bottom:16px;
+            color:#765b4d;
+          ">
+            <strong>Available Colors:</strong>
+            <br>
+            3 Colors Available
+          </div>
+
+          <button 
+            class="order-btn" 
+            type="button" 
+            onclick="openOrder(this)"
+          >
+            Order Now
+          </button>
+
+        </div>
+      </article>
+    `;
+
+    // Products 2-10 remain placeholders
+    for(let i=2;i<=10;i++){
+      grid.innerHTML += `
+        <article class="product-card">
+          <div class="product-photo">
+            <span>
+              Jom Jom<br>
+              Product ${i}<br>
+              Photo Coming Soon
+            </span>
+          </div>
+
+          <div class="product-info">
+            <h3>Jom Jom Product ${i}</h3>
+            <div class="product-price">৳ 0 BDT</div>
+
+            <button 
+              class="order-btn" 
+              type="button" 
+              onclick="openOrder(this)"
+            >
+              Order Now
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+  } else {
+
+    // Other categories
+    for(let i=1;i<=10;i++){
+      grid.innerHTML += `
+        <article class="product-card">
+          <div class="product-photo">
+            <span>
+              ${categoryNames[index]}<br>
+              Product ${i}<br>
+              Photo Coming Soon
+            </span>
+          </div>
+
+          <div class="product-info">
+            <h3>${categoryNames[index]} Product ${i}</h3>
+
+            <div class="product-price">
+              ৳ 0 BDT
+            </div>
+
+            <button 
+              class="order-btn" 
+              type="button" 
+              onclick="openOrder(this)"
+            >
+              Order Now
+            </button>
+          </div>
+        </article>
+      `;
+    }
+  }
+
+  document
+    .getElementById("collection")
+    .scrollIntoView({behavior:"smooth"});
+}
       document.querySelector(".category-grid").style.display = "none";
       document.getElementById("categoryProducts").classList.add("active");
       document.getElementById("categoryTitle").textContent = categoryNames[index];
